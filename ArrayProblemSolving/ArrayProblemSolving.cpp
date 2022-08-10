@@ -3,6 +3,40 @@
 
 using namespace std;
 
+
+void MissingElementInIncreasingSequence()
+{
+	vector<int> A = { 7,14,28,35};
+	int ElementDiff, Incrementor, ActualDiff, MissingElement;
+
+	// difference between the element in array in consequent places -> element difference
+	ElementDiff = A[1] - A[0];
+
+	//for any kind of increasing sequence -> incrementor changes
+	Incrementor = ElementDiff - 1;
+
+	//condition checked with difference between value and index -> actual difference
+	ActualDiff = A[0];
+
+	for (int i = 0;i < A.size();i++)
+	{
+		if ((A[i] - i) != ActualDiff)
+		{
+			MissingElement = ActualDiff + i;
+			break;
+		}
+		ActualDiff += Incrementor;
+	}
+
+	cout << "Missing element in the array is : " << MissingElement<<endl;
+
+}
+
+
+
+
+
+
 void MissingElementInSequenceM1()
 {
 	vector<int> A = { 1,2,3,4,6,7,8,9,10,11,12 };
@@ -57,6 +91,7 @@ void MissingElementInSequenceM2()
 int main()
 {
 	//MissingElementInSequenceM1();
-	MissingElementInSequenceM2();
+	//MissingElementInSequenceM2();
+	MissingElementInIncreasingSequence();
 	return 0;
 }
