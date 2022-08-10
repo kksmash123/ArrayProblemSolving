@@ -32,9 +32,31 @@ void MissingElementInSequenceM1()
 
 }
 
+void MissingElementInSequenceM2()
+{
+	vector<int> A = { 6,7,8,9,10,11,13,14,15,16,17 };
+
+	int diff = A[0],MissingElement;
+
+	//looping to find the missing element 
+
+	for (int i = 0; i < A.size();i++)
+	{
+		if (A[i]-i!=diff)
+		{
+			MissingElement = diff + i;
+			break;
+		}
+	}
+
+	cout << "Missing Element in Array is : " << MissingElement << endl;
+
+}
+
 
 int main()
 {
-	MissingElementInSequenceM1();
+	//MissingElementInSequenceM1();
+	MissingElementInSequenceM2();
 	return 0;
 }
