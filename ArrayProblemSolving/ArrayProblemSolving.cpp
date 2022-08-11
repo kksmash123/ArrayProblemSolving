@@ -4,6 +4,28 @@
 #include<map>
 
 using namespace std;
+void findNumbers() {
+	vector<int> nums = {437,315,322,431,686,264,442};
+	int count, total = 0, n;
+
+	for (int i = 0;i < nums.size();i++)
+	{
+		n = nums[i];
+		count = 0;
+
+		while (n != 0)
+		{
+			n /= 10;
+			count++;
+		}
+		if (count % 2 == 0)
+			total++;
+
+	}
+
+	cout<< total;
+
+}
 
 
 void findMaxConsecutiveOnes() {
@@ -280,8 +302,8 @@ int main()
 	//MissingElementInUnsortedArray();
 	//findDuplicateInSortedArray();
 	//findDuplicateAndCountInSortedArray();
-	findMaxConsecutiveOnes();
-
+	//findMaxConsecutiveOnes();
+	findNumbers();
 
 	return 0;
 }
