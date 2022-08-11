@@ -5,6 +5,31 @@
 
 using namespace std;
 
+
+void findMaxConsecutiveOnes() {
+	vector<int> nums = { 1,1,0,1,1,1 };
+	int helper, maxcount = 0;
+
+	for (int i = 0;i < nums.size();i++)
+	{
+		if (nums[i] == 1)
+		{
+			helper = i + 1;
+			while (helper < nums.size() && nums[helper] == 1 )
+				helper++;
+			if ((helper - i) > maxcount)
+				maxcount = helper - i;
+			i = helper - 1;
+			
+
+		}
+	}
+	cout<<maxcount;
+
+}
+
+
+
 void findDuplicateAndCountInSortedArray()
 {
 	vector<int> A = { 3,6,8,8,10,12,15,15,15,20 };
@@ -254,7 +279,8 @@ int main()
 	//MultipleMissingElementGeneric();
 	//MissingElementInUnsortedArray();
 	//findDuplicateInSortedArray();
-	findDuplicateAndCountInSortedArray();
+	//findDuplicateAndCountInSortedArray();
+	findMaxConsecutiveOnes();
 
 
 	return 0;
