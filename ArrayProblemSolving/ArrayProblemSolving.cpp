@@ -3,6 +3,54 @@
 
 using namespace std;
 
+
+void MultipleMissingElementGeneric()
+{
+	vector<int> MissingElement, A = { 5,20,25,30,45,50 };
+	int ElementDiff=A[1]-A[0], Incrementor, ActuralDiff = A[0];
+
+	//Finding the element difference in the missing element array
+	for (int i = 1,j=2;i < A.size() - 1;i++,j++)
+	{
+
+		if (A[j] - A[i] < ElementDiff)
+			ElementDiff = A[j] - A[i];
+	}
+	cout << "Element Difference : " << ElementDiff << endl;
+
+	//find the incrementor
+	Incrementor = ElementDiff - 1;
+
+	//Finding the missing element in the array
+
+	for (int i = 0;i < A.size();i++)
+	{
+		if ((A[i] - i) != ActuralDiff)
+		{
+			while (ActuralDiff < (A[i] - i))
+			{
+				MissingElement.push_back(ActuralDiff + i);
+				ActuralDiff += ElementDiff;
+			}
+		}
+		ActuralDiff += Incrementor;
+	}
+
+	//Display the output
+
+	cout << "Missing elements in the given Array : " << endl;
+	for (int x : MissingElement)
+		cout << x << " ";
+	cout << endl;
+
+
+}
+
+
+
+
+
+
 void MultipleMissingElementInSeries()
 {
 	vector<int> MissingElements,A = { 6,7,8,9,11,12,15,16,17,18,19 };
@@ -25,9 +73,6 @@ void MultipleMissingElementInSeries()
 		cout << x << " ";
 
 }
-
-
-
 
 
 void MissingElementInIncreasingSequence()
@@ -119,6 +164,8 @@ int main()
 	//MissingElementInSequenceM1();
 	//MissingElementInSequenceM2();
 	//MissingElementInIncreasingSequence();
-	MultipleMissingElementInSeries();
+	//MultipleMissingElementInSeries();
+	MultipleMissingElementGeneric();
+
 	return 0;
 }
