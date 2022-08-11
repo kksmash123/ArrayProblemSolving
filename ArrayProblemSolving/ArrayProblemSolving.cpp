@@ -1,7 +1,45 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
+
 
 using namespace std;
+
+void MissingElementInUnsortedArray()
+{
+	vector<int> A = { 3,7,4,9,12,6,1,11,2,10 };
+	vector<int> MissingElement;
+
+	//finding the minimun and maximum element in array
+	int max =* max_element(A.begin(), A.end());
+	int min = *min_element(A.begin(), A.end());
+	//cout << max << endl;
+	//cout << min << endl;
+
+	int Hashsize = max + 1;
+	vector<int> H(Hashsize);
+
+	//updating the presence of element in hashtable
+	for (int i = 0;i <A.size();i++)
+		H[A[i]] = 1;
+
+	//finding the missing element in the array with the help of hashtable
+	for (int i = min;i <= max;i++)
+	{
+		if (H[i] == 0)
+		{
+			MissingElement.push_back(i);
+		}
+	}
+
+	//Display the missing element
+	cout << "Missing element in Array :";
+	for (int x : MissingElement)
+		cout << x << " ";
+	cout << endl;
+
+}
+
 
 
 void MultipleMissingElementGeneric()
@@ -165,7 +203,8 @@ int main()
 	//MissingElementInSequenceM2();
 	//MissingElementInIncreasingSequence();
 	//MultipleMissingElementInSeries();
-	MultipleMissingElementGeneric();
+	//MultipleMissingElementGeneric();
+	MissingElementInUnsortedArray();
 
 	return 0;
 }
