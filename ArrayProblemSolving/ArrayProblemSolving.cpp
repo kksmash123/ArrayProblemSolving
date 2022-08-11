@@ -5,6 +5,35 @@
 
 using namespace std;
 
+
+
+void findDuplicateInSortedArray()
+{
+	vector<int> Duplicate, A = { 3,6,8,8,10,12,15,15,15,20 };
+	int lastDuplicate = 0;
+
+	//Finding the duplicate element in the array
+	for (int i = 0, j = 1;i < A.size()-1;i++, j++)
+	{
+		if (A[i] == A[j] && A[i]!=lastDuplicate)
+		{
+			Duplicate.push_back(A[i]);
+			lastDuplicate = A[i];
+			
+		}
+	}
+
+	//Display the Duplicate elements
+	cout << "Duplicate elements in the array : " << endl;
+	for (int x : Duplicate)
+		cout << x << " ";
+	cout << endl;
+
+}
+
+
+
+
 void MissingElementInUnsortedArray()
 {
 	vector<int> A = { 3,7,4,9,12,6,1,11,2,10 };
@@ -204,7 +233,8 @@ int main()
 	//MissingElementInIncreasingSequence();
 	//MultipleMissingElementInSeries();
 	//MultipleMissingElementGeneric();
-	MissingElementInUnsortedArray();
+	//MissingElementInUnsortedArray();
+	findDuplicateInSortedArray();
 
 	return 0;
 }
