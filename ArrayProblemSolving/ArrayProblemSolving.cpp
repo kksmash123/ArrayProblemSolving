@@ -3,6 +3,32 @@
 
 using namespace std;
 
+void MultipleMissingElementInSeries()
+{
+	vector<int> MissingElements,A = { 6,7,8,9,11,12,15,16,17,18,19 };
+	int diff = A[0];
+
+	//looping to find the missing number 
+	for (int i = 0;i < A.size();i++)
+	{
+		if ((A[i] - i) != diff)
+		{
+			while (diff < (A[i] - i))
+			{
+				MissingElements.push_back(diff + i);
+				diff++;
+			}
+		}
+	}
+	cout << "Missing Elements in the given Array :" << endl;
+	for (int x : MissingElements)
+		cout << x << " ";
+
+}
+
+
+
+
 
 void MissingElementInIncreasingSequence()
 {
@@ -92,6 +118,7 @@ int main()
 {
 	//MissingElementInSequenceM1();
 	//MissingElementInSequenceM2();
-	MissingElementInIncreasingSequence();
+	//MissingElementInIncreasingSequence();
+	MultipleMissingElementInSeries();
 	return 0;
 }
