@@ -1,9 +1,38 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
-
+#include<map>
 
 using namespace std;
+
+void findDuplicateAndCountInSortedArray()
+{
+	vector<int> A = { 3,6,8,8,10,12,15,15,15,20 };
+	map<int, int> DupCountMap;
+	
+
+	int helper,inext;
+
+	for (int i = 0;i < A.size() - 1;i++)
+	{
+		inext = i + 1;
+		if (A[i] == A[inext])
+		{
+			helper = i + 1;
+			while (A[helper] == A[i])
+				helper++;
+			DupCountMap.insert(pair<int, int>(A[i], helper - i));
+
+		}
+	}
+
+	//Display the output
+	for (auto itr = DupCountMap.begin();itr != DupCountMap.end();itr++)
+		cout << itr->first << " Duplicated " << itr->second << " times" << endl;
+
+
+}
+
 
 
 
@@ -30,7 +59,6 @@ void findDuplicateInSortedArray()
 	cout << endl;
 
 }
-
 
 
 
@@ -68,7 +96,6 @@ void MissingElementInUnsortedArray()
 	cout << endl;
 
 }
-
 
 
 void MultipleMissingElementGeneric()
@@ -112,10 +139,6 @@ void MultipleMissingElementGeneric()
 
 
 }
-
-
-
-
 
 
 void MultipleMissingElementInSeries()
@@ -169,10 +192,6 @@ void MissingElementInIncreasingSequence()
 	cout << "Missing element in the array is : " << MissingElement<<endl;
 
 }
-
-
-
-
 
 
 void MissingElementInSequenceM1()
@@ -234,7 +253,9 @@ int main()
 	//MultipleMissingElementInSeries();
 	//MultipleMissingElementGeneric();
 	//MissingElementInUnsortedArray();
-	findDuplicateInSortedArray();
+	//findDuplicateInSortedArray();
+	findDuplicateAndCountInSortedArray();
+
 
 	return 0;
 }
