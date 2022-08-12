@@ -6,6 +6,35 @@
 
 using namespace std;
 
+void removeDuplicates() {
+
+	vector<int> nums = { 0,0,1,1,1,2,2,3,3,4 };
+	int next, val;
+
+	for (int i = 0;i < nums.size();i++)
+	{
+		next = i + 1;
+		val = nums[i];
+		while (next<nums.size() && nums[next] == val)
+			nums.erase(nums.begin() + next);
+	}
+
+
+
+}
+
+
+void removeElement() {
+	vector<int> nums = { 3,2,2,3 };
+	int val=3;
+
+	for (int i = 0;i < nums.size();i++)
+	{
+		while(i<nums.size()  && nums[i] == 3)
+		nums.erase(nums.begin()+i);
+	}
+}
+
 
 void merge() {
 	vector<int> nums1={ 4,5,6,0,0,0}, nums2={ 1,2,3 };
@@ -394,7 +423,9 @@ int main()
 	//sortedSquares();
 	//duplicateZeros();
 	//duplicateZeros1();
-	merge();
+	//merge();
+	//removeElement();
+	removeDuplicates();
 
 	return 0;
 }
