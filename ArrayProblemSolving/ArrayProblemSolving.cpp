@@ -1,9 +1,99 @@
 #include<iostream>
+#include<cstdlib>
 #include<vector>
 #include<algorithm>
 #include<map>
 
 using namespace std;
+
+
+void merge() {
+	vector<int> nums1={ 4,5,6,0,0,0}, nums2={ 1,2,3 };
+	int m=nums1.size(), n=nums2.size(),i=0,j=0;
+
+	for (; i < m && j < n;i++)
+	{
+		if (nums2[j] <= nums1[i])
+		{
+			nums1.insert(nums1.begin() + i, nums2[j]);
+			
+			++j;
+			m++;
+		}
+
+	}
+
+
+	while (j < n)
+	{
+		nums1.insert(nums1.begin() + i, nums2[j]);
+		++i;
+		++j;
+		m++;
+	}
+
+
+}
+
+
+void duplicateZeros1() {
+	vector<int> arr = { 1,0,2,3,0,4,5,0 };
+	for (int i = 0;i < arr.size();i++) {
+		if (arr[i] == 0) {
+			arr.pop_back();
+			arr.insert(arr.begin() + i, 0);
+			++i;
+		}
+	}
+
+}
+
+void duplicateZeros()
+{
+	vector<int> arr1,arr = { 1,0,2,3,0,4,5,0 };
+	vector<int>::iterator i, end;
+
+	end = arr.end();
+	
+	for (i = arr.begin();i != end;i++)
+	{
+		arr1.push_back(*i);
+		if (*i == 0)
+		{	
+			arr1.push_back(0);
+			end--;
+			
+		}
+		
+
+	}
+	for (int x : arr1)
+		cout << x << " ";
+}
+
+
+void sortedSquares()
+{
+	vector<int> nums = { 7,-3,2,3,11 };
+	int a;
+	for (int i = 0;i < nums.size();i++)
+	{
+		a = nums[i];
+		nums[i] = pow(abs(a), 2);
+	}
+
+	for (int x : nums)
+		cout << x << " ";
+	cout << endl;
+
+	sort(nums.begin(),nums.end());
+	for (int x : nums)
+		cout << x << " ";
+	cout << endl;
+
+}
+
+
 void findNumbers() {
 	vector<int> nums = {437,315,322,431,686,264,442};
 	int count, total = 0, n;
@@ -51,7 +141,6 @@ void findMaxConsecutiveOnes() {
 }
 
 
-
 void findDuplicateAndCountInSortedArray()
 {
 	vector<int> A = { 3,6,8,8,10,12,15,15,15,20 };
@@ -81,8 +170,6 @@ void findDuplicateAndCountInSortedArray()
 }
 
 
-
-
 void findDuplicateInSortedArray()
 {
 	vector<int> Duplicate, A = { 3,6,8,8,10,12,15,15,15,20 };
@@ -106,7 +193,6 @@ void findDuplicateInSortedArray()
 	cout << endl;
 
 }
-
 
 
 void MissingElementInUnsortedArray()
@@ -270,6 +356,7 @@ void MissingElementInSequenceM1()
 
 }
 
+
 void MissingElementInSequenceM2()
 {
 	vector<int> A = { 6,7,8,9,10,11,13,14,15,16,17 };
@@ -303,7 +390,11 @@ int main()
 	//findDuplicateInSortedArray();
 	//findDuplicateAndCountInSortedArray();
 	//findMaxConsecutiveOnes();
-	findNumbers();
+	//findNumbers();
+	//sortedSquares();
+	//duplicateZeros();
+	//duplicateZeros1();
+	merge();
 
 	return 0;
 }
