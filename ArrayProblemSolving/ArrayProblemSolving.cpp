@@ -6,6 +6,7 @@
 
 using namespace std;
 
+
 void removeDuplicates() {
 
 	vector<int> nums = { 0,0,1,1,1,2,2,3,3,4 };
@@ -425,7 +426,8 @@ int main()
 	//duplicateZeros1();
 	//merge();
 	//removeElement();
-	removeDuplicates();
+	//removeDuplicates();
+	
 
 	return 0;
 }
